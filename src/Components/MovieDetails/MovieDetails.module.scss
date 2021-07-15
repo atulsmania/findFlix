@@ -1,0 +1,74 @@
+.container {
+  display: flex;
+  opacity: 0;
+  animation: fadeIn 1s ease forwards 0s;
+  justify-content: center;
+
+  .poster {
+    img {
+      max-width: 342px;
+    }
+  }
+
+  .movieDetails {
+    * {
+      margin: 2rem 0;
+    }
+    padding: 2em;
+    max-width: 80ch;
+    width: 80ch;
+    font-size: 1.2rem;
+
+    p {
+      max-width: 75ch;
+    }
+
+    .rating {
+      display: flex;
+      gap: 2rem;
+      text-transform: capitalize;
+      font-size: 1.5rem;
+      h6 {
+        margin: 0.5rem;
+      }
+    }
+
+    .genres {
+      margin-top: 1rem;
+      h4 {
+        display: inline;
+        margin-right: 1rem;
+        padding: 0.5em;
+        border-radius: 0.2rem;
+        background-color: rgba(0, 0, 0, 0.2);
+      }
+    }
+
+    button {
+      padding: 0.5em;
+      color: white;
+      background: none;
+      border: 2px solid white;
+      border-radius: 0.1rem;
+      font-weight: 1rem;
+      cursor: pointer;
+      margin: 1.5rem 1.5rem 0px 0px;
+      &:hover {
+        background-color: white;
+        color: #081327;
+      }
+      &:active:enabled {
+        transform: scale(1.1);
+      }
+    }
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

@@ -1,0 +1,55 @@
+.movies {
+  position: relative;
+  display: flex;
+  flex-flow: column;
+  max-width: 200px;
+  color: white;
+  text-align: left;
+  margin: 0.8rem 1rem;
+  opacity: 0;
+  animation: fadeIn 1s ease forwards 0s;
+  .movies > a {
+    height: max-content;
+    width: fit-content;
+  }
+
+  a > img {
+    cursor: pointer;
+    height: 300px;
+    border-radius: 0.1rem;
+  }
+
+  h4 {
+    font-size: 1em;
+    font-weight: 400;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: block;
+    margin: 0.5rem 0;
+  }
+
+  .movieImage {
+    position: relative;
+  }
+
+  .movieImage::after {
+    position: absolute;
+    inset: 0;
+    content: "";
+    transition: background-color 0.2s;
+  }
+
+  .movieImage::after:hover {
+    background-color: rgba(0, 0, 0, 0.199);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
