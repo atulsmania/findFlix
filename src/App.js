@@ -1,8 +1,7 @@
 import React from "react";
 import { Navbar, Home, MovieDetails, FavMovies } from "./Components";
 import { Route, Switch, BrowserRouter as Router } from "react-router-dom";
-import MoviesContextProvider from "./context/MoviesContext";
-import FavouritesContextProvider from "./context/FavouritesContext";
+import { MoviesContextProvider, FavouritesContextProvider } from "./context";
 import "./styles.css";
 
 function App() {
