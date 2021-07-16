@@ -1,2 +1,2 @@
-# shop_app
-Created with CodeSandbox
+# Popular Movies Catalogue
+Explore Popular movies.
