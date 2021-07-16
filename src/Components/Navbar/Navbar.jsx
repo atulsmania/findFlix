@@ -3,6 +3,7 @@ import styles from "./Navbar.module.scss";
 import { Link } from "react-router-dom";
 
 function Navbar() {
+  console.log(location);
   return (
     <div className={styles.container}>
       <Link to="/">

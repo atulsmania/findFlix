@@ -6,28 +6,24 @@ import "./styles.css";
 
 function App() {
   return (
-    <MoviesContextProvider>
-      <FavouritesContextProvider>
-        <div className="App">
-          <Router>
-            <Navbar />
-            <Switch>
-              <Route exact path="/favourites">
-                <FavMovies />
-              </Route>
+    <FavouritesContextProvider>
+      <div className="App">
+        <Router>
+          <Navbar />
+          <Switch>
+            <Route exact path="/favourites" component={FavMovies} />
 
-              <Route exact path="/details/:id">
-                <MovieDetails />
-              </Route>
+            <Route exact path="/details/:id" component={MovieDetails} />
 
-              <Route path="/">
+            <Route path="/:page?">
+              <MoviesContextProvider>
                 <Home />
-              </Route>
-            </Switch>
-          </Router>
-        </div>
-      </FavouritesContextProvider>
-    </MoviesContextProvider>
+              </MoviesContextProvider>
+            </Route>
+          </Switch>
+        </Router>
+      </div>
+    </FavouritesContextProvider>
   );
 }
 

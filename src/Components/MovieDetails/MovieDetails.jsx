@@ -1,7 +1,6 @@
 import React, { useContext, useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import styles from "./MovieDetails.module.scss";
-import { Link } from "react-router-dom";
 import { FavouritesContext } from "../../context";
 import getMovieDetails from "../../api/getMovieDetails";
 
@@ -9,6 +8,7 @@ function MovieDetails() {
   const [movie, setmovie] = useState(null);
   const [favourites, dispatch] = useContext(FavouritesContext);
   const { id } = useParams();
+  const history = useHistory();
   const isFav = favourites.includes(id);
 
   const imageURL = `https://image.tmdb.org/t/p/w342`;
@@ -44,9 +44,7 @@ function MovieDetails() {
               ))}
             </div>
             <p>{movie.overview}</p>
-            <Link to="/">
-              <button>back</button>
-            </Link>
+            <button onClick={() => history.goBack()}>back</button>
             <button onClick={() => dispatch(dispatchObj)}>
               {isFav ? "remove from favourites" : "add to favourites"}
             </button>
