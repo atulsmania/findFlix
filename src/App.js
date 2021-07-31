@@ -1,29 +1,30 @@
 import React from "react";
-import { Navbar, Home, MovieDetails, FavMovies } from "./Components";
-import { Route, Switch, BrowserRouter as Router } from "react-router-dom";
-import { MoviesContextProvider, FavouritesContextProvider } from "./context";
+import { Provider } from "react-redux";
+import {
+  Route,
+  Switch,
+  Redirect,
+  BrowserRouter as Router,
+} from "react-router-dom";
+import { configStore } from "./store";
+import { Navbar, MovieDetails, FavMovies, Movies, Footer } from "./Components";
 import "./styles.css";
 
 function App() {
   return (
-    <FavouritesContextProvider>
+    <Provider store={configStore()}>
       <div className="App">
         <Router>
           <Navbar />
           <Switch>
             <Route exact path="/favourites" component={FavMovies} />
-
             <Route exact path="/details/:id" component={MovieDetails} />
-
-            <Route path="/:page?">
-              <MoviesContextProvider>
-                <Home />
-              </MoviesContextProvider>
-            </Route>
+            <Route exact path="/:catagory?/:page?" component={Movies} />
           </Switch>
+          <Footer />
         </Router>
       </div>
-    </FavouritesContextProvider>
+    </Provider>
   );
 }
 

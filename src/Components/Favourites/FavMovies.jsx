@@ -1,12 +1,12 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect } from "react";
 import { MovieCard } from "..";
-import { FavouritesContext } from "../../context";
 import styles from "./FavMovies.module.scss";
 import getMovieDetails from "../../api/getMovieDetails";
+import { connect } from "react-redux";
+import { loadFavourites } from "../../selectors";
 
-function FavMovies() {
+function FavMovies({ favourites }) {
   const [favArr, setFavArr] = useState(null);
-  const [favourites] = useContext(FavouritesContext);
 
   useEffect(() => {
     Promise.all(favourites.map((id) => getMovieDetails(id))).then((res) =>
@@ -25,4 +25,8 @@ function FavMovies() {
   );
 }
 
-export default FavMovies;
+const mapStateToProps = (state) => ({
+  favourites: loadFavourites(state),
+});
+
+export default connect(mapStateToProps, null)(FavMovies);

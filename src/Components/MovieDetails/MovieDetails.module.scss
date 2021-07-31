@@ -1,26 +1,24 @@
 .container {
   display: flex;
   opacity: 0;
+  padding: 1em 0;
   animation: fadeIn 1s ease forwards 0s;
   justify-content: center;
+  gap: 2rem;
 
   .poster {
-    img {
-      max-width: 342px;
-    }
+    width: 342px;
   }
 
   .movieDetails {
-    * {
-      margin: 2rem 0;
-    }
-    padding: 2em;
+    position: relative;
     max-width: 80ch;
     width: 80ch;
-    font-size: 1.2rem;
+    font-size: 1.05rem;
 
     p {
       max-width: 75ch;
+      line-height: 1.5rem;
     }
 
     .rating {
@@ -29,6 +27,7 @@
       text-transform: capitalize;
       font-size: 1.5rem;
       h6 {
+        font-weight: 200;
         margin: 0.5rem;
       }
     }
@@ -44,21 +43,11 @@
       }
     }
 
-    button {
-      padding: 0.5em;
-      color: white;
-      background: none;
-      border: 2px solid white;
-      border-radius: 0.1rem;
-      font-weight: 1rem;
-      cursor: pointer;
-      margin: 1.5rem 1.5rem 0px 0px;
+    .backbtn {
+      border: none;
       &:hover {
-        background-color: white;
-        color: #081327;
-      }
-      &:active:enabled {
-        transform: scale(1.1);
+        background: rgba(255, 255, 255, 0.411);
+        color: white;
       }
     }
   }
