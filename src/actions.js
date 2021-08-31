@@ -4,11 +4,12 @@ import {
   MOVIES_LOADING,
   MOVIES_LOADING_SUCCESS,
   MOVIES_LOADING_FAILURE,
-  MOVIEDETAILS_LOADING,
-  MOVIEDETAILS_LOADING_SUCCESS,
-  MOVIEDETAILS_LOADING_FAILURE,
+  MOVIE_DETAILS_LOADING,
+  MOVIE_DETAILS_LOADING_SUCCESS,
+  MOVIE_DETAILS_LOADING_FAILURE,
 } from "./actionTypes";
 
+// *favorite id list
 const addToFav = (id) => ({
   type: ADD_FAV,
   payload: id,
@@ -19,45 +20,35 @@ const removeFromFav = (id) => ({
   payload: id,
 });
 
-const moviesLoading = () => {
-  return {
-    type: MOVIES_LOADING,
-  };
-};
+// *movies database
+const moviesLoading = () => ({
+  type: MOVIES_LOADING,
+});
 
-const moviesLoadingSuccess = (movies) => {
-  return {
-    type: MOVIES_LOADING_SUCCESS,
-    data: movies,
-  };
-};
+const moviesLoadingSuccess = (movies) => ({
+  type: MOVIES_LOADING_SUCCESS,
+  data: movies,
+});
 
-const moviesLoadingFailure = (error) => {
-  return {
-    type: MOVIES_LOADING_FAILURE,
-    error: error,
-  };
-};
+const moviesLoadingFailure = (error) => ({
+  type: MOVIES_LOADING_FAILURE,
+  error,
+});
 
-const movieDetailsLoading = () => {
-  return {
-    type: MOVIEDETAILS_LOADING,
-  };
-};
+// *movie details
+const movieDetailsLoading = () => ({
+  type: MOVIE_DETAILS_LOADING,
+});
 
-const movieDetailsLoadingSuccess = (movies) => {
-  return {
-    type: MOVIEDETAILS_LOADING_SUCCESS,
-    data: movies,
-  };
-};
+const movieDetailsLoadingSuccess = (movies) => ({
+  type: MOVIE_DETAILS_LOADING_SUCCESS,
+  data: movies,
+});
 
-const movieDetailsLoadingFailure = (error) => {
-  return {
-    type: MOVIEDETAILS_LOADING_FAILURE,
-    error: error,
-  };
-};
+const movieDetailsLoadingFailure = (error) => ({
+  type: MOVIE_DETAILS_LOADING_FAILURE,
+  error,
+});
 
 export const actions = {
   addToFav,

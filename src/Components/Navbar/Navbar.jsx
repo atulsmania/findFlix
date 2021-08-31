@@ -1,13 +1,13 @@
 import React from "react";
-import styles from "./Navbar.module.scss";
 import { Link } from "react-router-dom";
+import styles from "./Navbar.module.scss";
 import { path } from "../../routePaths";
 
 function Navbar() {
   return (
     <div className={styles.container}>
       <div className={styles.mainTitle}>
-        <h1>flixNchill</h1>
+        <h1>FindFlix</h1>
       </div>
       <div className={styles.catagory}>
         <Link to={path.NOW_PLAYING}>
@@ -23,8 +23,8 @@ function Navbar() {
           <h1 className={styles.title}>Up Coming</h1>
         </Link>
 
-        <Link to={path.FAVOURITES}>
-          <button>Favourites</button>
+        <Link to={path.FAVORITES}>
+          <button type="button">Favorites</button>
         </Link>
       </div>
     </div>

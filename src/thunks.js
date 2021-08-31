@@ -1,11 +1,11 @@
 import { actions } from "./actions";
 
-const api_key = "670303602e5e5bcf8eb83062ba3f715e";
+const API_KEY = "670303602e5e5bcf8eb83062ba3f715e";
 
 // *get Movie Details
-export const getMovieDetails = (movieId) => async (dispatch, getState) => {
+export const getMovieDetails = (movieId) => (dispatch) => {
   dispatch(actions.movieDetailsLoading());
-  const URL = `https://api.themoviedb.org/3/movie/${movieId}?api_key=${api_key}&language=en-US`;
+  const URL = `https://api.themoviedb.org/3/movie/${movieId}?api_key=${API_KEY}&language=en-US`;
 
   fetch(URL)
     .then((res) => res.json())
@@ -14,14 +14,11 @@ export const getMovieDetails = (movieId) => async (dispatch, getState) => {
 };
 
 // *get Popular Movies Database
-export const getMovieDatabase =
-  ({ catagory, page }) =>
-  async (dispatch, getState) => {
-    dispatch(actions.moviesLoading());
-    const URL = `https://api.themoviedb.org/3/movie/${catagory}?api_key=${api_key}&language=en-US&page=${page}`;
-    console.log(URL);
-    fetch(URL)
-      .then((res) => res.json())
-      .then((data) => dispatch(actions.moviesLoadingSuccess(data)))
-      .catch((e) => dispatch(actions.moviesLoadingFailure(e)));
-  };
+export const getMovieDatabase = ({ catagory, page }) => (dispatch) => {
+  dispatch(actions.moviesLoading());
+  const URL = `https://api.themoviedb.org/3/movie/${catagory}?api_key=${API_KEY}&language=en-US&page=${page}`;
+  fetch(URL)
+    .then((res) => res.json())
+    .then((data) => dispatch(actions.moviesLoadingSuccess(data)))
+    .catch((e) => dispatch(actions.moviesLoadingFailure(e)));
+};

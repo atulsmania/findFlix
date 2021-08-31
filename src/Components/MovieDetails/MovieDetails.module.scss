@@ -5,6 +5,7 @@
   animation: fadeIn 1s ease forwards 0s;
   justify-content: center;
   gap: 2rem;
+  width: 100%;
 
   .poster {
     width: 342px;
@@ -44,11 +45,24 @@
     }
 
     .backbtn {
-      border: none;
-      &:hover {
-        background: rgba(255, 255, 255, 0.411);
-        color: white;
-      }
+      height: 2rem;
+      width: 2rem;
+      cursor: pointer;
+    }
+
+    svg {
+      height: 1.5rem;
+      width: 1.5rem;
+      transition: 0.4s;
+      cursor: pointer;
+      fill: transparent;
+      stroke: white;
+      stroke-width: 0.1rem;
+    }
+
+    .favorite {
+      fill: red;
+      stroke: red;
     }
   }
 }

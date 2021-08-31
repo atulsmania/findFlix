@@ -2,7 +2,7 @@ const TOP_RATED = "/top_rated";
 const UP_COMING = "/upcoming";
 const NOW_PLAYING = "/now_playing";
 const POPULAR = "/popular";
-const FAVOURITES = "/favourites";
+const FAVORITES = "/favorites";
 const DETAILS = "/details";
 
 export const path = {
@@ -10,6 +10,6 @@ export const path = {
   UP_COMING,
   NOW_PLAYING,
   POPULAR,
-  FAVOURITES,
+  FAVORITES,
   DETAILS,
 };

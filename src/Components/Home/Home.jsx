@@ -1,7 +1,7 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 import MovieCard from "../MovieCard/MovieCard";
 import styles from "./Home.module.scss";
-import { useHistory } from "react-router-dom";
 
 const Home = ({ movies = [], page, catagory }) => {
   const history = useHistory();
@@ -13,14 +13,11 @@ const Home = ({ movies = [], page, catagory }) => {
         ))}
       </div>
       <div className={styles.buttons}>
-        <button
-          onClick={() => history.push(`/${catagory}/${page - 1}`)}
-          disabled={page <= 1}
-        >
+        <button type="button" onClick={() => history.push(`/${catagory}/${page - 1}`)} disabled={page <= 1}>
           prev
         </button>
         <h2>{page}</h2>
-        <button onClick={() => history.push(`/${catagory}/${page + 1}`)}>
+        <button type="button" onClick={() => history.push(`/${catagory}/${page + 1}`)}>
           next
         </button>
       </div>

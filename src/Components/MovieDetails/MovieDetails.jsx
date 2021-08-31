@@ -1,16 +1,18 @@
 import React, { useEffect } from "react";
 import { useHistory, useParams } from "react-router-dom";
+import { connect } from "react-redux";
+import { IoArrowBackCircleOutline } from "react-icons/io5";
+import { MdFavorite } from "react-icons/md";
+import { getMovieDetails } from "../../thunks";
 import Loading from "../Loading/Loading";
 import Error from "../Error/Error";
-import { getMovieDetails } from "../../thunks";
-import { connect } from "react-redux";
 import { actions } from "../../actions";
+import { loadMovieDetails, loadFavorites } from "../../selectors";
 import styles from "./MovieDetails.module.scss";
-import { loadMovieDetails, loadFavourites } from "../../selectors";
 
-function MovieDetails({ movieDetails, favourites, getMovieDetails }) {
+function MovieDetails({ movieDetails, favorites }) {
   const { id } = useParams();
-  const isFav = favourites.includes(id);
+  const isFav = favorites.includes(id);
 
   useEffect(() => {
     getMovieDetails(id);
@@ -18,30 +20,25 @@ function MovieDetails({ movieDetails, favourites, getMovieDetails }) {
 
   return (
     <div className={styles.container}>
-      {movieDetails.loading ? (
-        <Loading />
-      ) : movieDetails.data ? (
-        <ConnectedMovie movie={movieDetails.data} id={id} isFav={isFav} />
-      ) : (
-        <Error />
-      )}
+      {movieDetails.loading && <Loading />}
+      {movieDetails.data && <ConnectedMovie movie={movieDetails.data} id={id} isFav={isFav} />}
+      {movieDetails.error && <Error />}
     </div>
   );
 }
 
-const Movie = ({ movie, addToFav, removeFromFav, id, isFav }) => {
+const Movie = ({ movie, addToFav, removeFromFav, movieID, isFav }) => {
   const dispatchFunction = isFav ? removeFromFav : addToFav;
-  const imageURL = `https://image.tmdb.org/t/p/w342`;
+  const imageURL = "https://image.tmdb.org/t/p/w342";
   const history = useHistory();
+
   return (
     <>
       <div className={styles.poster}>
         <img src={imageURL + movie.poster_path} alt={movie.original_title} />
       </div>
       <div className={styles.movieDetails}>
-        <button className={styles.backbtn} onClick={() => history.goBack()}>
-          <i className="material-icons-outlined">keyboard_backspace</i>
-        </button>
+        <IoArrowBackCircleOutline className={styles.backbtn} onClick={() => history.goBack()} />
         <h1>{movie.title}</h1>
         <div className={styles.rating}>
           <h6>lang : {movie.original_language}</h6>
@@ -54,26 +51,22 @@ const Movie = ({ movie, addToFav, removeFromFav, id, isFav }) => {
           ))}
         </div>
         <p>{movie.overview}</p>
-        <button onClick={() => dispatchFunction(id)}>
-          {isFav ? "remove from favourites" : "add to favourites"}
-        </button>
+        <MdFavorite className={isFav && styles.favorite} onClick={() => dispatchFunction(movieID)} />
       </div>
     </>
   );
 };
 
 const mapStateToProps = (state) => ({
-  favourites: loadFavourites(state),
+  favorites: loadFavorites(state),
   movieDetails: loadMovieDetails(state),
 });
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    addToFav: (id) => dispatch(actions.addToFav(id)),
-    removeFromFav: (id) => dispatch(actions.removeFromFav(id)),
-    getMovieDetails: (id) => dispatch(getMovieDetails(id)),
-  };
-};
+const mapDispatchToProps = (dispatch) => ({
+  addToFav: (id) => dispatch(actions.addToFav(id)),
+  removeFromFav: (id) => dispatch(actions.removeFromFav(id)),
+  getMovieDetails: (id) => dispatch(getMovieDetails(id)),
+});
 
 const ConnectedMovie = connect(mapStateToProps, mapDispatchToProps)(Movie);
 export default connect(mapStateToProps, mapDispatchToProps)(MovieDetails);
