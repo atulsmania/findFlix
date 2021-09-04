@@ -3,7 +3,7 @@ import { Provider } from "react-redux";
 import { Route, Switch, BrowserRouter as Router } from "react-router-dom";
 import { configStore } from "./store";
 import { Navbar, Footer } from "./components";
-import { MovieDetails, PopularMovies, Favorites } from "./containers";
+import { MovieDetails, MoviesPage, Favorites } from "./containers";
 import "./styles.css";
 
 function App() {
@@ -15,7 +15,7 @@ function App() {
           <Switch>
             <Route exact path="/favorites" component={Favorites} />
             <Route exact path="/details/:id" component={MovieDetails} />
-            <Route exact path="/:catagory?/:page?" component={PopularMovies} />
+            <Route exact path="/:catagory?/:page?" component={MoviesPage} />
           </Switch>
           <Footer />
         </Router>
