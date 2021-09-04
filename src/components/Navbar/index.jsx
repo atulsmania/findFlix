@@ -2,12 +2,13 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styles from "./styles.module.scss";
 import { path } from "../../routes";
+import { Logo } from "..";
 
 function Navbar() {
   return (
     <div className={styles.container}>
       <div className={styles.mainTitle}>
-        <h1>FindFlix</h1>
+        <Logo />
       </div>
       <div className={styles.catagory}>
         <Link to={path.NOW_PLAYING}>

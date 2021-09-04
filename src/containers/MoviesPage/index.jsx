@@ -6,7 +6,7 @@ import { getMovieDatabase } from "../../api/thunks";
 import { Error, Loading, Movies } from "../../components";
 
 const DEFAULT_CATAGORY = "popular";
-function PopularMovies({ movies, getMovies }) {
+function MoviesPage({ movies, getMovies }) {
   const { catagory = DEFAULT_CATAGORY, page = 1 } = useParams();
 
   useEffect(() => {
@@ -30,4 +30,4 @@ const mapDispatchToProps = (dispatch) => ({
   getMovies: (page) => dispatch(getMovieDatabase(page)),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(PopularMovies);
+export default connect(mapStateToProps, mapDispatchToProps)(MoviesPage);

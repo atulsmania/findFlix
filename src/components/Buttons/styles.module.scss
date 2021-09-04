@@ -1,26 +1,9 @@
 .buttons {
-  margin-bottom: 4rem;
-
+  margin: 2rem;
+  display: flex;
+  justify-content: center;
   button {
     width: 4rem;
-    padding: 0.5em;
-    color: white;
-    border: 2px solid white;
-    background: none;
-    border-radius: 0.1rem;
-    margin: 1rem;
-    &:hover:enabled {
-      cursor: pointer;
-      background-color: white;
-      color: #081327;
-    }
-    &:disabled {
-      color: rgba(255, 255, 255, 0.322);
-      border: 2px solid rgba(255, 255, 255, 0.377);
-    }
-    &:enabled:active {
-      transform: scale(1.1);
-    }
   }
   h2 {
     display: inline;

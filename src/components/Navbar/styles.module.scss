@@ -5,13 +5,16 @@
   display: flex;
   background: rgba(4, 10, 24, 0.98);
   box-shadow: 0 0 0.4rem #040a18;
+  background: rgb(15, 21, 19);
   z-index: 1;
   display: flex;
   padding: 0 0.5rem;
 
   .mainTitle {
     flex-grow: 2;
-    cursor: default;
+    & img {
+      width: 10rem;
+    }
   }
   .catagory {
     display: flex;

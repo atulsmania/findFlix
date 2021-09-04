@@ -4,3 +4,4 @@ export { default as MovieCard } from "./MovieCard";
 export { default as Loading } from "./Loading";
 export { default as Error } from "./Error";
 export { default as Movies } from "./Movies";
+export { default as Logo } from "./Logo";
