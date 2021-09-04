@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import PropTypes from "prop-types";
-import styles from "./MovieCard.module.scss";
+import styles from "./styles.module.scss";
 
 const MovieCard = ({ movie }) => {
   const URL = `https://image.tmdb.org/t/p/w185${movie.poster_path}`;
@@ -15,10 +14,6 @@ const MovieCard = ({ movie }) => {
       <span>{movie.release_date ? movie.release_date.slice(0, 4) : "TBD"}</span>
     </div>
   );
-};
-
-MovieCard.propTypes = {
-  movie: PropTypes.objectOf(PropTypes.string).isRequired,
 };
 
 export default MovieCard;

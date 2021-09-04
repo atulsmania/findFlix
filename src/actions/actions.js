@@ -1,13 +1,16 @@
 import {
   ADD_FAV,
   REMOVE_FAV,
+  FAVORITE_MOVIES_LOADING,
+  FAVORITE_MOVIES_LOADING_SUCCESS,
+  FAVORITE_MOVIES_LOADING_FAILURE,
   MOVIES_LOADING,
   MOVIES_LOADING_SUCCESS,
   MOVIES_LOADING_FAILURE,
   MOVIE_DETAILS_LOADING,
   MOVIE_DETAILS_LOADING_SUCCESS,
   MOVIE_DETAILS_LOADING_FAILURE,
-} from "./actionTypes";
+} from "../constants/actionTypes";
 
 // *favorite id list
 const addToFav = (id) => ({
@@ -35,6 +38,22 @@ const moviesLoadingFailure = (error) => ({
   error,
 });
 
+// *movies database
+const favoriteMoviesLoading = () => ({
+  type: FAVORITE_MOVIES_LOADING,
+});
+
+const favoriteMoviesLoadingSuccess = (movies) => ({
+  type: FAVORITE_MOVIES_LOADING_SUCCESS,
+  data: movies,
+});
+
+const favoriteMoviesLoadingFailure = (error) => ({
+  type: FAVORITE_MOVIES_LOADING_FAILURE,
+  error,
+});
+
+
 // *movie details
 const movieDetailsLoading = () => ({
   type: MOVIE_DETAILS_LOADING,
@@ -59,4 +78,7 @@ export const actions = {
   moviesLoading,
   moviesLoadingSuccess,
   moviesLoadingFailure,
+  favoriteMoviesLoading,
+  favoriteMoviesLoadingSuccess,
+  favoriteMoviesLoadingFailure
 };

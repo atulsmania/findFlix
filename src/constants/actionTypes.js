@@ -4,6 +4,11 @@ export const MOVIES_LOADING_SUCCESS = "movies_loading_success";
 export const MOVIES_LOADING_FAILURE = "movies_loading_failure";
 
 // * for getting movies by page
+export const FAVORITE_MOVIES_LOADING = "favorite_movies_loading";
+export const FAVORITE_MOVIES_LOADING_SUCCESS = "favorite_movies_loading_success";
+export const FAVORITE_MOVIES_LOADING_FAILURE = "favorite_movies_loading_failure";
+
+// * for getting movies by page
 export const MOVIE_DETAILS_LOADING = "movieDetails_loading";
 export const MOVIE_DETAILS_LOADING_SUCCESS = "movieDetails_loading_success";
 export const MOVIE_DETAILS_LOADING_FAILURE = "movieDetails_loading_failure";

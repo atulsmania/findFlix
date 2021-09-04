@@ -9,14 +9,7 @@
 }
 body {
   margin: 0;
-  background-image: linear-gradient(
-    to top,
-    #051937,
-    #07162f,
-    #081327,
-    #070f1f,
-    #040a18
-  );
+  background-image: linear-gradient(to top, #051937, #07162f, #081327, #070f1f, #040a18);
   min-height: 100vh;
 }
 

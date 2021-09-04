@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import styles from "./Loading.module.scss";
+import styles from "./styles.module.scss";
 
 const initialState = {
   1: true,

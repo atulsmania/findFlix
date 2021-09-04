@@ -3,14 +3,13 @@ import { useHistory, useParams } from "react-router-dom";
 import { connect } from "react-redux";
 import { IoArrowBackCircleOutline } from "react-icons/io5";
 import { MdFavorite } from "react-icons/md";
-import { getMovieDetails } from "../../thunks";
-import Loading from "../Loading/Loading";
-import Error from "../Error/Error";
-import { actions } from "../../actions";
+import { getMovieDetails } from "../../api/thunks";
+import { Loading, Error } from "../../components";
+import { actions } from "../../actions/actions";
 import { loadMovieDetails, loadFavorites } from "../../selectors";
-import styles from "./MovieDetails.module.scss";
+import styles from "./styles.module.scss";
 
-function MovieDetails({ movieDetails, favorites }) {
+function MovieDetails({ movieDetails, favorites, getMovieDetails }) {
   const { id } = useParams();
   const isFav = favorites.includes(id);
 
@@ -21,7 +20,7 @@ function MovieDetails({ movieDetails, favorites }) {
   return (
     <div className={styles.container}>
       {movieDetails.loading && <Loading />}
-      {movieDetails.data && <ConnectedMovie movie={movieDetails.data} id={id} isFav={isFav} />}
+      {movieDetails.data && <ConnectedMovie movie={movieDetails.data} movieID={id} isFav={isFav} />}
       {movieDetails.error && <Error />}
     </div>
   );

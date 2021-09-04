@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import styles from "./Navbar.module.scss";
-import { path } from "../../routePaths";
+import styles from "./styles.module.scss";
+import { path } from "../../routes";
 
 function Navbar() {
   return (
