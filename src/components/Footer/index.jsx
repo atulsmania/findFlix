@@ -1,8 +1,13 @@
 import React from "react";
-// import { GrTwitter, GrGithub, GrInstagram } from "react-icons/gr";
+import Logo from "../Logo";
+import styles from "./styles.module.scss";
 
 function Footer() {
-  return <div>{/* <GrTwitter /> */}</div>;
+  return (
+    <div className={styles.footerContainer}>
+      <Logo />
+    </div>
+  );
 }
 
 export default Footer;

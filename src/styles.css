@@ -11,6 +11,8 @@ body {
   margin: 0;
   background-image: linear-gradient(to top, #051937, #07162f, #081327, #070f1f, #040a18);
   min-height: 100vh;
+  background: rgb(15, 21, 19);
+  background: linear-gradient(180deg, rgba(15, 21, 19, 1) 35%, rgba(37, 53, 49, 1) 100%);
 }
 
 .App {
