@@ -1,4 +1,10 @@
-import { ADD_FAV, FAVORITE_MOVIES_LOADING, FAVORITE_MOVIES_LOADING_FAILURE, FAVORITE_MOVIES_LOADING_SUCCESS, REMOVE_FAV } from "../constants/actionTypes";
+import {
+  ADD_FAV,
+  FAVORITE_MOVIES_LOADING,
+  FAVORITE_MOVIES_LOADING_FAILURE,
+  FAVORITE_MOVIES_LOADING_SUCCESS,
+  REMOVE_FAV,
+} from "constants/actionTypes";
 
 export const favoriteMoviesReducer = (favorites = [], action) => {
   switch (action.type) {
@@ -11,7 +17,7 @@ export const favoriteMoviesReducer = (favorites = [], action) => {
     default:
       return favorites;
   }
-}
+};
 
 const initialState = {
   loading: false,

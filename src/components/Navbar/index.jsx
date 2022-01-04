@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import styles from "./styles.module.scss";
-import { path } from "../../routes";
-import { Logo } from "..";
+import { path } from "routes";
+import { Logo } from "components";
+import styles from "components/Navbar/styles.module.scss";
 
 function Navbar() {
   return (

@@ -5,7 +5,7 @@ import {
   MOVIES_LOADING,
   MOVIES_LOADING_SUCCESS,
   MOVIES_LOADING_FAILURE,
-} from "../constants/actionTypes";
+} from "constants/actionTypes";
 
 const initialState = {
   loading: false,

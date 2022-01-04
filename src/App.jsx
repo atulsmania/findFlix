@@ -1,10 +1,11 @@
 import React from "react";
 import { Provider } from "react-redux";
 import { Route, Switch, BrowserRouter as Router } from "react-router-dom";
-import { configStore } from "./store";
-import { Navbar, Footer } from "./components";
-import { MovieDetails, MoviesPage, Favorites } from "./containers";
-import "./styles.css";
+import Navbar from "components/Navbar";
+import { configStore } from "store";
+import { Footer } from "components";
+import { MovieDetails, MoviesPage, Favorites } from "containers";
+import "styles.css";
 
 function App() {
   return (

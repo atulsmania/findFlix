@@ -4,6 +4,13 @@
     "es2021": true
   },
   "extends": ["plugin:react/recommended", "airbnb", "prettier"],
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "moduleDirectory": ["node_modules", "src/"]
+      }
+    }
+  },
   "parserOptions": {
     "ecmaFeatures": {
       "jsx": true

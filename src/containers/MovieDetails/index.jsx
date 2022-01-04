@@ -3,11 +3,11 @@ import { useHistory, useParams } from "react-router-dom";
 import { connect } from "react-redux";
 import { IoArrowBackCircleOutline } from "react-icons/io5";
 import { MdFavorite } from "react-icons/md";
-import { getMovieDetails } from "../../api/thunks";
-import { Loading, Error } from "../../components";
-import { actions } from "../../actions/actions";
-import { loadMovieDetails, loadFavorites } from "../../selectors";
-import styles from "./styles.module.scss";
+import { getMovieDetails } from "api/thunks";
+import { Loading, Error } from "components";
+import { actions } from "actions/actions";
+import { loadMovieDetails, loadFavorites } from "selectors";
+import styles from "containers/MovieDetails/styles.module.scss";
 
 function MovieDetails({ movieDetails, favorites, getMovieDetails }) {
   const { id } = useParams();

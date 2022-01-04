@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { connect } from "react-redux";
-import { loadMovies } from "../../selectors";
-import { getMovieDatabase } from "../../api/thunks";
-import { Error, Loading, Movies } from "../../components";
+import { loadMovies } from "selectors";
+import { getMovieDatabase } from "api/thunks";
+import { Error, Loading, Movies } from "components";
 
 const DEFAULT_CATAGORY = "popular";
 function MoviesPage({ movies, getMovies }) {
