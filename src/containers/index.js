@@ -1,3 +1,3 @@
-export { default as MoviesPage } from "./MoviesPage";
-export { default as MovieDetails } from "./MovieDetails";
-export { default as Favorites } from "./Favorites";
+export { default as MoviesPage } from "containers/MoviesPage";
+export { default as MovieDetails } from "containers/MovieDetails";
+export { default as Favorites } from "containers/Favorites";

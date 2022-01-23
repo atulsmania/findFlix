@@ -1,8 +1,8 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
-import Buttons from "../Buttons";
-import MovieCard from "../MovieCard";
-import styles from "./styles.module.scss";
+import Buttons from "components/Buttons";
+import MovieCard from "components/MovieCard";
+import styles from "components/Movies/styles.module.scss";
 
 const Movies = ({ movies = [], page, catagory }) => {
   const history = useHistory();
