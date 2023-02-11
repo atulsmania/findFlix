@@ -1,47 +1,11 @@
-*,
-::after,
-::before {
-  box-sizing: border-box;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
-  --color: #f0f0f0;
-  --background-color: rgb(15, 21, 19);
-  --background-gradiant-color: linear-gradient(90deg, rgba(15, 21, 19, 1) 35%, rgba(22, 32, 29, 1) 100%);
+  --background-gradient-color: linear-gradient(90deg, rgba(15, 21, 19, 1) 35%, rgba(22, 32, 29, 1) 100%);
 }
 body {
   margin: 0;
-  background: var(--background-color);
-  background: var(--background-gradiant-color);
-}
-.App {
-  font-family: sans-serif;
-  min-height: 100vh;
-  color: var(--color);
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: center;
-  align-items: center;
-}
-button {
-  padding: 0.5em;
-  color: var(--color);
-  background: none;
-  border: 2px solid var(--color);
-  border-radius: 0.1rem;
-  font-weight: 1rem;
-  cursor: pointer;
-  transition: 0.4s;
-  margin: 1rem;
-}
-button:hover:enabled {
-  cursor: pointer;
-  background-color: var(--color);
-  color: var(--background-color);
-}
-button:disabled {
-  color: rgba(255, 255, 255, 0.322);
-  border: 2px solid rgba(255, 255, 255, 0.377);
-}
-button:active:enabled {
-  transform: scale(1.1);
+  background: var(--background-gradient-color);
 }
