@@ -1,6 +1,6 @@
 import React from "react";
 import { Provider } from "react-redux";
-import { Route, Routes, BrowserRouter as Router } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import { configStore } from "./store";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
@@ -12,19 +12,13 @@ import "./styles.css";
 function App() {
   return (
     <Provider store={configStore()}>
-      <div className="App">
-        <Router>
-          <Navbar />
-          <div className="content">
-            <Routes>
-              <Route exact path="/favorites" component={Favorites} />
-              <Route exact path="/details/:id" component={MovieDetails} />
-              <Route exact path="/:catagory?/:page?" component={MoviesPage} />
-            </Routes>
-          </div>
-          <Footer />
-        </Router>
-      </div>
+      <Navbar />
+      <Routes>
+        <Route path="/favorites" element={<Favorites />} />
+        <Route path="/details/:id" element={<MovieDetails />} />
+        <Route path="/:catagory?/:page?" element={<MoviesPage />} />
+      </Routes>
+      <Footer />
     </Provider>
   );
 }

@@ -1,10 +1,10 @@
 import React from "react";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import MovieCard from "../MovieCard";
 import Buttons from "../Buttons";
 
 const Movies = ({ movies = [], page, catagory }) => {
-  const history = useHistory();
+  const navigate = useNavigate();
   return (
     <>
       <div>
@@ -13,9 +13,9 @@ const Movies = ({ movies = [], page, catagory }) => {
         ))}
       </div>
       <Buttons
-        previousPage={() => history.push(`/${catagory}/${page - 1}`)}
+        previousPage={() => navigate(`/${catagory}/${page - 1}`)}
         currentPage={page}
-        nextPage={() => history.push(`/${catagory}/${page + 1}`)}
+        nextPage={() => navigate(`/${catagory}/${page + 1}`)}
       />
     </>
   );

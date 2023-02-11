@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useHistory, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { connect } from "react-redux";
 import { IoArrowBackCircleOutline } from "react-icons/io5";
 import { MdFavorite } from "react-icons/md";
@@ -29,7 +29,7 @@ function MovieDetails({ movieDetails, favorites, getMovieDetails }) {
 const Movie = ({ movie, addToFav, removeFromFav, movieID, isFav }) => {
   const dispatchFunction = isFav ? removeFromFav : addToFav;
   const imageURL = "https://image.tmdb.org/t/p/w342";
-  const history = useHistory();
+  const navigate = useNavigate();
 
   return (
     <>
@@ -37,7 +37,7 @@ const Movie = ({ movie, addToFav, removeFromFav, movieID, isFav }) => {
         <img src={imageURL + movie.poster_path} alt={movie.original_title} />
       </div>
       <div>
-        <IoArrowBackCircleOutline onClick={() => history.goBack()} />
+        <IoArrowBackCircleOutline onClick={() => navigate(-1)} />
         <h1>{movie.title}</h1>
         <div>
           <h6>lang : {movie.original_language}</h6>
