@@ -1,10 +1,9 @@
 import React from "react";
-import { Logo } from "components";
-import styles from "components/Footer/styles.module.scss";
+import Logo from "../Logo";
 
 function Footer() {
   return (
-    <div className={styles.footerContainer}>
+    <div>
       <Logo />
     </div>
   );

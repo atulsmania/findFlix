@@ -4,7 +4,7 @@ import {
   FAVORITE_MOVIES_LOADING_FAILURE,
   FAVORITE_MOVIES_LOADING_SUCCESS,
   REMOVE_FAV,
-} from "constants/actionTypes";
+} from "../constants/actionTypes";
 
 export const favoriteMoviesReducer = (favorites = [], action) => {
   switch (action.type) {

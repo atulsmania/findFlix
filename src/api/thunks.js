@@ -1,6 +1,7 @@
-import { actions } from "actions/actions";
+/* eslint-disable prefer-destructuring */
+import { actions } from "../actions/actions";
 
-const API_KEY = "670303602e5e5bcf8eb83062ba3f715e";
+const API_KEY = import.meta.env.VITE_API_KEY;
 
 // *get Movie Details
 export const getMovieDetails = (movieId) => (dispatch) => {

@@ -1,10 +1,13 @@
 import React from "react";
 import { Provider } from "react-redux";
-import { Route, Switch, BrowserRouter as Router } from "react-router-dom";
-import { configStore } from "store";
-import { Navbar, Footer } from "components";
-import { MovieDetails, MoviesPage, Favorites } from "containers";
-import "styles.css";
+import { Route, Routes, BrowserRouter as Router } from "react-router-dom";
+import { configStore } from "./store";
+import Footer from "./components/Footer";
+import Navbar from "./components/Navbar";
+import Favorites from "./containers/Favorites";
+import MoviesPage from "./containers/MoviesPage";
+import MovieDetails from "./containers/MovieDetails";
+import "./styles.css";
 
 function App() {
   return (
@@ -13,11 +16,11 @@ function App() {
         <Router>
           <Navbar />
           <div className="content">
-            <Switch>
+            <Routes>
               <Route exact path="/favorites" component={Favorites} />
               <Route exact path="/details/:id" component={MovieDetails} />
               <Route exact path="/:catagory?/:page?" component={MoviesPage} />
-            </Switch>
+            </Routes>
           </div>
           <Footer />
         </Router>

@@ -3,11 +3,11 @@ import { useHistory, useParams } from "react-router-dom";
 import { connect } from "react-redux";
 import { IoArrowBackCircleOutline } from "react-icons/io5";
 import { MdFavorite } from "react-icons/md";
-import { getMovieDetails } from "api/thunks";
-import { Loading, Error } from "components";
-import { actions } from "actions/actions";
-import { loadMovieDetails, loadFavorites } from "selectors";
-import styles from "containers/MovieDetails/styles.module.scss";
+import { getMovieDetails } from "../../api/thunks";
+import Loading from "../../components/Loading";
+import Error from "../../components/Error";
+import { actions } from "../../actions/actions";
+import { loadMovieDetails, loadFavorites } from "../../selectors";
 
 function MovieDetails({ movieDetails, favorites, getMovieDetails }) {
   const { id } = useParams();
@@ -18,7 +18,7 @@ function MovieDetails({ movieDetails, favorites, getMovieDetails }) {
   }, [id]);
 
   return (
-    <div className={styles.container}>
+    <div>
       {movieDetails.loading && <Loading />}
       {movieDetails.data && <ConnectedMovie movie={movieDetails.data} movieID={id} isFav={isFav} />}
       {movieDetails.error && <Error />}
@@ -33,24 +33,24 @@ const Movie = ({ movie, addToFav, removeFromFav, movieID, isFav }) => {
 
   return (
     <>
-      <div className={styles.poster}>
+      <div>
         <img src={imageURL + movie.poster_path} alt={movie.original_title} />
       </div>
-      <div className={styles.movieDetails}>
-        <IoArrowBackCircleOutline className={styles.backbtn} onClick={() => history.goBack()} />
+      <div>
+        <IoArrowBackCircleOutline onClick={() => history.goBack()} />
         <h1>{movie.title}</h1>
-        <div className={styles.rating}>
+        <div>
           <h6>lang : {movie.original_language}</h6>
           <h6>rating : {movie.vote_average}</h6>
           <h6>Released On : {movie.release_date}</h6>
         </div>
-        <div className={styles.genres}>
+        <div>
           {movie.genres.map(({ name, id }) => (
             <h4 key={id}>{name}</h4>
           ))}
         </div>
         <p>{movie.overview}</p>
-        <MdFavorite className={isFav && styles.favorite} onClick={() => dispatchFunction(movieID)} />
+        <MdFavorite onClick={() => dispatchFunction(movieID)} />
       </div>
     </>
   );

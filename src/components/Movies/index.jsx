@@ -1,13 +1,13 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
-import { MovieCard, Buttons } from "components";
-import styles from "components/Movies/styles.module.scss";
+import MovieCard from "../MovieCard";
+import Buttons from "../Buttons";
 
 const Movies = ({ movies = [], page, catagory }) => {
   const history = useHistory();
   return (
     <>
-      <div className={styles.container}>
+      <div>
         {movies.map((item) => (
           <MovieCard key={item.id} movie={item} />
         ))}

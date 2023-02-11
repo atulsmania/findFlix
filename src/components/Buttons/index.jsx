@@ -1,8 +1,7 @@
 import React from "react";
-import styles from "components/Buttons/styles.module.scss";
 
 const Buttons = ({ previousPage, currentPage, nextPage }) => (
-  <div className={styles.buttons}>
+  <div>
     <button type="button" onClick={previousPage} disabled={currentPage <= 1}>
       prev
     </button>

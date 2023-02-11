@@ -10,7 +10,7 @@ import {
   MOVIE_DETAILS_LOADING,
   MOVIE_DETAILS_LOADING_SUCCESS,
   MOVIE_DETAILS_LOADING_FAILURE,
-} from "constants/actionTypes";
+} from "../constants/actionTypes";
 
 // *favorite id list
 const addToFav = (id) => ({
