@@ -5,21 +5,24 @@ import { loadMovies } from "../../selectors";
 import { getMovieDatabase } from "../../api/thunks";
 import Error from "../../components/Error";
 import Loading from "../../components/Loading";
-import Movies from "../../components/Movies";
+import MovieCard from "../../components/MovieCard";
 
-const DEFAULT_CATAGORY = "popular";
-function MoviesPage({ movies, getMovies }) {
-  const { catagory = DEFAULT_CATAGORY, page = 1 } = useParams();
+const DEFAULT_CATEGORY = "popular";
+function Movies({ movies, getMovies }) {
+  const { category = DEFAULT_CATEGORY, page = 1 } = useParams();
 
   useEffect(() => {
-    getMovies({ catagory, page });
-  }, [page, catagory]);
+    getMovies({ category, page });
+  }, [page, category]);
 
   return (
-    <div>
+    <div className="flex flex-wrap">
       {movies.loading && <Loading />}
       {movies.error && <Error />}
-      {movies.data && <Movies movies={movies.data.results} page={+page} catagory={catagory} />}
+      {movies.data &&
+        movies.data.results.map((item) => {
+          return <MovieCard key={item.id} movie={item} />;
+        })}
     </div>
   );
 }
@@ -32,4 +35,4 @@ const mapDispatchToProps = (dispatch) => ({
   getMovies: (page) => dispatch(getMovieDatabase(page)),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(MoviesPage);
+export default connect(mapStateToProps, mapDispatchToProps)(Movies);
