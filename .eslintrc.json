@@ -24,6 +24,7 @@
     "no-shadow": "off",
     "react/prop-types": "off",
     "quotes": ["error", "double"],
-    "no-unused-vars": "warn"
+    "no-unused-vars": "warn",
+    "react/react-in-jsx-scope": "off"
   }
 }

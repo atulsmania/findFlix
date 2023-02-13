@@ -1,8 +1,7 @@
-import React, { useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Movies from "@/pages/Movies";
-import "./styles.css";
+import "@/styles.css";
 
 const App = () => {
   return (

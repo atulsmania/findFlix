@@ -1,6 +1,5 @@
-import { Movie } from "@/api";
-import React, { ComponentProps } from "react";
 import { Link } from "react-router-dom";
+import { Movie } from "@/api";
 
 type MovieCardProps = { movie: Movie };
 
