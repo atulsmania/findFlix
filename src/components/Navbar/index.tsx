@@ -1,11 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { path } from "../../routes";
-import SVG from "../../assets/logo.svg";
+import classNames from "classnames";
+import SVG from "@/assets/logo.svg";
+import { Category } from "@/api";
 
-function Navbar() {
+const Navbar = () => {
   return (
-    <div className="sticky top-0 navbar text-white bg-primary-400">
+    <div className="sticky top-0 text-white navbar bg-primary-400">
       <div className="flex-1">
         <img className="h-16" src={SVG} alt="findFlix" />
       </div>
@@ -27,28 +28,31 @@ function Navbar() {
         </button>
 
         <ul
-          onClick={(e) => e.target.blur()}
-          className="max-md:dropdown-content menu md:menu-horizontal right-0 max-md:bg-primary-300 whitespace-nowrap"
+          onClick={(e) => (e.target as HTMLUListElement).blur()}
+          className={classNames(
+            "right-0 max-md:dropdown-content menu md:menu-horizontal",
+            " whitespace-nowrap max-md:bg-primary-300"
+          )}
         >
           <li>
-            <Link to={path.NOW_PLAYING}>Now Playing</Link>
+            <Link to={`/${Category.NOW_PLAYING}`}>Now Playing</Link>
           </li>
           <li>
-            <Link to={path.TOP_RATED}>Top Rated</Link>
+            <Link to={`/${Category.TOP_RATED}`}>Top Rated</Link>
           </li>
           <li>
-            <Link to={path.POPULAR}>Popular</Link>
+            <Link to={`/${Category.POPULAR}`}>Popular</Link>
           </li>
           <li>
-            <Link to={path.UP_COMING}>Up Coming</Link>
+            <Link to={`/${Category.UP_COMING}`}>Up Coming</Link>
           </li>
           <li>
-            <Link to={path.FAVORITES}>Favorites</Link>
+            <Link to={`/${Category.FAVORITES}`}>Favorites</Link>
           </li>
         </ul>
       </div>
     </div>
   );
-}
+};
 
 export default Navbar;
