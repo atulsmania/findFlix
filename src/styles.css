@@ -2,10 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background-gradient-color: linear-gradient(90deg, rgba(15, 21, 19, 1) 35%, rgba(22, 32, 29, 1) 100%);
-}
-body {
-  margin: 0;
-  background: var(--background-gradient-color);
+@layer utilities {
+  .skeleton {
+    @apply bg-base-300 animate-pulse rounded-2xl;
+  }
 }

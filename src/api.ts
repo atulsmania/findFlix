@@ -1,3 +1,10 @@
+import axios from "axios";
+import { QueryFunctionContext } from "react-query";
+
+const axiosInstance = axios.create({
+  baseURL: `/api`,
+});
+
 export interface Movie {
   adult: boolean;
   backdrop_path: string;
@@ -16,10 +23,12 @@ export interface Movie {
 }
 
 export interface Result {
-  page: number;
-  results: Movie[];
-  total_pages: number;
-  total_results: number;
+  movies: {
+    page: number;
+    results: Movie[];
+    total_pages: number;
+    total_results: number;
+  };
 }
 
 export enum Category {
@@ -30,3 +39,11 @@ export enum Category {
   FAVORITES = "favorites",
   DETAILS = "details",
 }
+
+export const getMovies = async ({
+  queryKey,
+}: QueryFunctionContext<[Category, number]>) => {
+  const [category, page] = queryKey;
+  const response = await axiosInstance.post<Result>(`/${category}`, { page });
+  return response.data;
+};
