@@ -1,8 +1,7 @@
-import { Route, Routes } from "react-router-dom";
-import Header from "@/components/Header";
-import Home from "@/pages/Home";
+import { RouterProvider } from "react-router-dom";
 import { useEffect } from "react";
 import { useNetworkStatus } from "./hooks/useNetworkStatus";
+import { router } from "./routes";
 import "@/styles.css";
 
 const Main = () => {
@@ -12,17 +11,7 @@ const Main = () => {
     handleStatusChange();
   }, [isOnLine]);
 
-  return (
-    <div className="app">
-      <Header />
-      <main>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          {/* <Route path="/:category" element={<Home />} /> */}
-        </Routes>
-      </main>
-    </div>
-  );
+  return <RouterProvider router={router} />;
 };
 
 export default Main;

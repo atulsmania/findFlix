@@ -1,6 +1,5 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import { BrowserRouter } from "react-router-dom";
 import { QueryClientProvider, QueryClient } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools";
 
@@ -15,12 +14,10 @@ const client = new QueryClient();
 root.render(
   <StrictMode>
     <QueryClientProvider client={client}>
-      <BrowserRouter>
-        <SnackbarProvider>
-          <Main />
-        </SnackbarProvider>
-        <ReactQueryDevtools initialIsOpen={false} position="bottom-right" />
-      </BrowserRouter>
+      <SnackbarProvider>
+        <Main />
+      </SnackbarProvider>
+      <ReactQueryDevtools initialIsOpen={false} position="bottom-right" />
     </QueryClientProvider>
   </StrictMode>
 );

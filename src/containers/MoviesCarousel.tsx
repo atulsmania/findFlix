@@ -4,6 +4,7 @@ import Carousal from "@/components/Carousal";
 import Card from "@/components/Card";
 import If from "@/components/If";
 import { ReactComponent as ArrowSVG } from "@/assets/icons/arrow.svg";
+import { Fragment } from "react";
 
 type MoviesCarouselProps = {
   category: Category;
@@ -18,8 +19,8 @@ const MoviesCarousel = ({ category }: MoviesCarouselProps) => {
     movies?.results ?? Array.from({ length: 4 }, (_, i) => ({} as Movie));
 
   return (
-    <div>
-      <div className="flex items-center gap-2 ml-4 cursor-pointer empty:skeleton empty:h-6 empty:w-28 group w-fit">
+    <Fragment>
+      <div className="flex items-center gap-2 cursor-pointer empty:skeleton empty:h-6 empty:w-28 group w-fit">
         <If is={isFetched}>
           <h3 className="font-semibold uppercase">
             {category.replace("_", " ")}
@@ -43,7 +44,7 @@ const MoviesCarousel = ({ category }: MoviesCarouselProps) => {
           );
         })}
       </Carousal>
-    </div>
+    </Fragment>
   );
 };
 
