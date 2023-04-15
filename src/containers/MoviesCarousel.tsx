@@ -4,6 +4,8 @@ import Carousal from "@/components/Carousal";
 import Card from "@/components/Card";
 import If from "@/components/If";
 import { ReactComponent as ArrowSVG } from "@/assets/icons/arrow.svg";
+import { Link } from "react-router-dom";
+import { BackdropSize, getImagePath } from "@/utils";
 
 type MoviesCarouselProps = {
   category: Category;
@@ -11,7 +13,6 @@ type MoviesCarouselProps = {
 
 const MoviesCarousel = ({ category }: MoviesCarouselProps) => {
   const { data: movies, isFetched } = useQuery([category, 1], getMovies);
-  const IMAGE_URL = `https://image.tmdb.org/t/p/w500`;
 
   const results =
     movies?.results ?? Array.from({ length: 4 }, (_, i) => ({} as Movie));
@@ -33,10 +34,14 @@ const MoviesCarousel = ({ category }: MoviesCarouselProps) => {
           return (
             <Carousal.Item key={index}>
               <If is={isFetched}>
-                <Card>
-                  <Card.Image src={`${IMAGE_URL}${movie.backdrop_path}`} />
-                  <Card.Body></Card.Body>
-                </Card>
+                <Link to={`/${movie.id}`}>
+                  <Card>
+                    <Card.Image
+                      src={getImagePath(BackdropSize.W300, movie.backdrop_path)}
+                    />
+                    <Card.Body></Card.Body>
+                  </Card>
+                </Link>
               </If>
             </Carousal.Item>
           );
