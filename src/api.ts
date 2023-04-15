@@ -23,12 +23,10 @@ export interface Movie {
 }
 
 export interface Result {
-  movies: {
-    page: number;
-    results: Movie[];
-    total_pages: number;
-    total_results: number;
-  };
+  page: number;
+  results: Movie[];
+  total_pages: number;
+  total_results: number;
 }
 
 export enum Category {
@@ -44,6 +42,19 @@ export const getMovies = async ({
   queryKey,
 }: QueryFunctionContext<[Category, number]>) => {
   const [category, page] = queryKey;
-  const response = await axiosInstance.post<Result>(`/${category}`, { page });
+
+  const response = await axiosInstance.post<Result>(`/movies`, {
+    category,
+    page,
+  });
+  return response.data;
+};
+
+export const getDetails = async ({
+  queryKey,
+}: QueryFunctionContext<[movieId: string]>) => {
+  const [movieId] = queryKey;
+
+  const response = await axiosInstance.post<Result>(`/details`, { movieId });
   return response.data;
 };
