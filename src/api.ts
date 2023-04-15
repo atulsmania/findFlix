@@ -55,6 +55,8 @@ export const getDetails = async ({
 }: QueryFunctionContext<[movieId: string]>) => {
   const [movieId] = queryKey;
 
-  const response = await axiosInstance.post<Result>(`/details`, { movieId });
+  const response = await axiosInstance.post<unknown>(`/details`, {
+    movieId,
+  });
   return response.data;
 };
