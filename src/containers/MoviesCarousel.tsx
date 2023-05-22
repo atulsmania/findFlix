@@ -38,6 +38,7 @@ const MoviesCarousel = ({ category }: MoviesCarouselProps) => {
                   <Card>
                     <Card.Image
                       src={getImagePath(BackdropSize.W300, movie.backdrop_path)}
+                      alt={movie.title}
                     />
                     <Card.Body></Card.Body>
                   </Card>
